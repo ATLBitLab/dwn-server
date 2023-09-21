@@ -1,0 +1,27 @@
+[Unit]
+Description=DWN Server
+Documentation=https://github.com/ATLBitLab/dwn-server.git
+
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Environment=HOME=/home/bryan
+
+WorkingDirectory=/home/bryan/source-code/dwn-server/dist/esm/src
+ExecStart=/home/bryan/n/bin/node /home/bryan/source-code/dwn-server/dist/esm/src/main.js
+
+Restart=always
+RestartSec=10
+
+SyslogIdentifier=dwn
+
+User=bryan
+Group=bryan
+
+RuntimeDirectory=bryan
+RuntimeDirectoryMode=0710
+
+
+[Install]
+WantedBy=multi-user.target
